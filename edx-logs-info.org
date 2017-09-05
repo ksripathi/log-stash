@@ -1,0 +1,51 @@
+//// For current logged in details
+
+Success full logged in
+- - 183.82.186.105 - - [03/Sep/2017:15:38:49 +0530]  "GET /dashboard HTTP/1.1" 200 10958 0.217 "https://vlabs.ac.in/login?next=/dashboard" "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+Success full logout
+- - 183.82.186.105 - - [03/Sep/2017:15:37:51 +0530]  "GET /logout HTTP/1.1" 302 5 0.023 "https://vlabs.ac.in/dashboard" "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+Success full login but refreshed
+- - 183.82.186.105 - - [03/Sep/2017:16:10:32 +0530]  "GET /dashboard HTTP/1.1" 200 10958 0.213 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+Hit on logout without logged in
+- - 183.82.186.105 - - [03/Sep/2017:16:13:14 +0530]  "GET /logout HTTP/1.1" 302 5 0.011 "https://vlabs.ac.in/" "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+
+
+/////visit hits usages
+Hits on lab after logged in
+- - 183.82.186.105 - - [03/Sep/2017:15:39:03 +0530]  "GET /courses/course-v1:IIIT-Hyderabad+CSE04+Anytime/info HTTP/1.1" 200 7103 0.101 "https://vlabs.ac.in/dashboard" "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+Visit theory section
+- - 183.82.186.105 - - [03/Sep/2017:15:51:10 +0530]  "GET /courses/course-v1:IIIT-Hyderabad+CSE04+Anytime/courseware/0ff28ffc4f214f959164b3f5963326e7/fda3c2a977b743d0aa1f8b05ad532f07/ HTTP/1.1" 200 15847 0.636 "https://vlabs.ac.in/courses/course-v1:IIIT-Hyderabad+CSE04+Anytime/courseware/41f2e8c78e964f589f69318bb3f1699e/e1a446e975cf4ba99a2fd60b8c03c50a/" "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+Visit experiment section
+- - 183.82.186.105 - - [03/Sep/2017:15:52:09 +0530]  "GET /courses/course-v1:IIIT-Hyderabad+CSE04+Anytime/courseware/de04571081774532a02ec5e3d54e66c2/1969aa0640e446ba800c6378438979b3/ HTTP/1.1" 200 15217 0.638 "https://vlabs.ac.in/courses/course-v1:IIIT-Hyderabad+CSE04+Anytime/courseware/0ff28ffc4f214f959164b3f5963326e7/ce9af102e5e64902bdb7d15bcd93ef3b/" "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+
+
+//////Test VM lms logs
+Sep  4 06:06:44 ip-172-31-9-78 [service_variant=lms][edx.student][env:sandbox] ERROR [ip-172-31-9-78  2312] [views.py:288] - User Sripathi enrolled in broken or non-existent course course-v1:Amritha-University+CBI-AU+Anytime
+Sep  4 06:07:57 ip-172-31-9-78 [service_variant=lms][audit][env:sandbox] INFO [ip-172-31-9-78  2312] [models.py:1854] - Logout - user.id: 13
+Sep  4 06:08:21 ip-172-31-9-78 [service_variant=lms][ratelimitbackend][env:sandbox] INFO [ip-172-31-9-78  2303] [backends.py:44] - Login failed: username 'pathi', IP 196.12.53.130
+Sep  4 06:08:21 ip-172-31-9-78 [service_variant=lms][audit][env:sandbox] WARNING [ip-172-31-9-78  2303] [views.py:1255] - Login failed - password for user.id: 91 is invalid
+Sep  4 06:08:33 ip-172-31-9-78 [service_variant=lms][ratelimitbackend][env:sandbox] INFO [ip-172-31-9-78  2303] [backends.py:44] - Login failed: username 'pathi', IP 196.12.53.130
+Sep  4 06:08:33 ip-172-31-9-78 [service_variant=lms][audit][env:sandbox] WARNING [ip-172-31-9-78  2303] [views.py:1255] - Login failed - password for user.id: 91 is invalid
+Sep  4 06:12:42 ip-172-31-9-78 [service_variant=lms][requests.packages.urllib3.connectionpool][env:sandbox] INFO [ip-172-31-9-78  2311] [connectionpool.py:207] - Starting new HTTP connection (1): localhost
+Sep  4 06:12:42 ip-172-31-9-78 [service_variant=lms][lms.lib.comment_client.utils][env:sandbox] INFO [ip-172-31-9-78  2311] [utils.py:49] - comment_client_request_log: request_id=9fd7b76f-c27c-42a4-b660-dcdedc720e4f, method=put, url=http://localhost:18080/api/v1/users/4597, duration=0.0700500011444
+Sep  4 06:12:42 ip-172-31-9-78 [service_variant=lms][audit][env:sandbox] INFO [ip-172-31-9-78  2311] [models.py:1844] - Login success - user.id: 4597
+Sep  4 06:12:42 ip-172-31-9-78 [service_variant=lms][audit][env:sandbox] INFO [ip-172-31-9-78  2311] [views.py:1823] - Login success on new account creation - sreeepathi
+
+Sep  4 06:17:36 ip-172-31-9-78 [service_variant=lms][audit][env:sandbox] INFO [ip-172-31-9-78  2309] [models.py:1854] - Logout - user.id: 4597
+Sep  4 06:19:28 ip-172-31-9-78 [service_variant=lms][audit][env:sandbox] WARNING [ip-172-31-9-78  2310] [views.py:1330] - Login failed - Account not active for user.id: 4597, resending activation
+Sep  4 06:19:32 ip-172-31-9-78 [service_variant=lms][audit][env:sandbox] WARNING [ip-172-31-9-78  2310] [views.py:1330] - Login failed - Account not active for user.id: 4597, resending activation
+Sep  4 06:23:03 ip-172-31-9-78 [service_variant=lms][audit][env:sandbox] INFO [ip-172-31-9-78  2309] [models.py:1844] - Login success - user.id: 13
+Sep  4 06:23:04 ip-172-31-9-78 [service_variant=lms][edx.student][env:sandbox] ERROR [ip-172-31-9-78  2309] [views.py:288] - User Sripathi enrolled in broken or non-existent course course-v1:Amritha-University+CBI-AU+Anytime
+
+
+/// Production AWS
+Successfull registration
+
+- - 196.12.53.130 - - [04/Sep/2017:15:12:55 +0530]  "POST /user_api/v1/account/registration/ HTTP/1.1" 200 52 0.131 "https://vlabs.ac.in/register" "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+Successfull registration from coure page
+10.2.58.153 - 196.12.53.130 - - [04/Sep/2017:15:20:22 +0530]  "POST /user_api/v1/account/registration/ HTTP/1.1" 200 52 0.158 "http://vlabs.ac.in/register?course_id=course-v1%3AIIT-Delhi%2BECE21%2BAnytime&enrollment_action=enroll" "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+
+
+/// Activated users
+- - 183.82.186.105 - - [05/Sep/2017:08:09:17 +0530]  "GET /activate/04b22d5343364902b67d5ba0c10223b3 HTTP/1.1" 200 6643 0.068 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+1
